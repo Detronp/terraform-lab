@@ -1,14 +1,14 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE = "detronp/devops-webapp"
+        DOCKER_IMAGE = "/devops-webapp"
         APP_HOST = "YOUR_APPLICATION_EC2_PUBLIC_IP"
     }
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/Detronp/terraform-docker-jenkins-project.git'
+                    url: 'https://github.com//terraform-docker-jenkins-project.git'
             }
         }
         stage('Build Docker Image') {
@@ -21,8 +21,8 @@ pipeline {
                 withCredentials([
                     usernamePassword(
                         credentialsId: 'dockerhub-creds',
-                        usernameVariable: 'detronp',
-                        passwordVariable: 'Ryleesdad1321!'
+                        usernameVariable: '',
+                        passwordVariable: ''
                     )
                 ]) {
                     sh '''
